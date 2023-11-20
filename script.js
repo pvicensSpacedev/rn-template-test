@@ -1,16 +1,16 @@
 #!/usr/bin/env node
 
-// script.js
 const fs = require('fs');
 const path = require('path');
 
-// Replace placeholder with the project name
-const projectName = process.argv[2]; // Get the project name from the command line arguments
-const templatePath = path.join(__dirname, 'template');
+// Get the project name from the command line arguments
+const projectName = process.argv[2];
 
-const packageJsonPath = path.join(templatePath, 'package.json');
+// Assuming the script is run from a directory containing the newly created project directory
+const projectPath = path.join(process.cwd(), projectName); // Path to the newly created project directory
+const packageJsonPath = path.join(projectPath, 'package.json'); // Path to the package.json in the newly created project
 
-fs.readFile(packageJsonPath, 'utf-8', (err, data) => {
+fs.readFile(packageJsonJsonPath, 'utf-8', (err, data) => {
   if (err) {
     console.error('Error reading package.json:', err);
     return;
